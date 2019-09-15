@@ -1,6 +1,8 @@
 import com.senlainc.training.noc_nod.NocNod;
 import com.senlainc.training.number.IntegerNumber;
-import com.senlainc.training.word_in_text.Sentence;
+import com.senlainc.training.count_words.Sentence;
+import com.senlainc.training.palindrome.SentencePalindrome;
+import com.senlainc.training.word_in_text.TextWords;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -15,6 +17,7 @@ public class App {
             App.greeting();
             Scanner scanner = new Scanner(System.in);
             String task = scanner.next();
+            Scanner newScanner = new Scanner(System.in);
             switch (task) {
                 case "1":
                     try {
@@ -40,7 +43,6 @@ public class App {
                     }
                     break;
                 case "3":
-                    Scanner newScanner = new Scanner(System.in);
                     try {
                         System.out.print("\n\tEnter the sentence (space separator): ");
                         String scanStr = newScanner.nextLine();
@@ -51,6 +53,32 @@ public class App {
                     }
                     break;
                 case "4":
+                    try {
+                        System.out.print("\n\tEnter the text: ");
+                        String scanStr = newScanner.nextLine();
+                        System.out.print("\n\tEnter the word for find: ");
+                        String wordForFind = scanner.next();
+                        TextWords text = new TextWords(scanStr, wordForFind);
+                        System.out.println(text.toString());
+                    } catch (InputMismatchException e) {
+                        System.out.println("\tEnter correct text!\n");
+                    }
+                    break;
+                case "5":
+                    try {
+                        System.out.print("\n\tEnter the number: ");
+                        int n = newScanner.nextInt();
+                        if (n <= 100) {
+                            SentencePalindrome numbers = new SentencePalindrome(n);
+                            System.out.println(numbers.toString());
+                        } else {
+                            throw new InputMismatchException();
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("\n\tThe number must not exceed 100!\n");
+                    }
+                    break;
+                case "6":
                     gameStep = false;
                     break;
                 default:
@@ -64,7 +92,9 @@ public class App {
         System.out.println("\n\t1. Check on integer");
         System.out.println("\t2. NOC and NOD");
         System.out.println("\t3. Count of word in sentence");
-        System.out.println("\t4. Exit\n");
+        System.out.println("\t4. Count of word in text");
+        System.out.println("\t5. Numbers palindrome");
+        System.out.println("\t6. Exit\n");
         System.out.print("\tSelect a menu item: ");
     }
 }
