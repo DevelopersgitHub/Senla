@@ -1,5 +1,6 @@
 import com.senlainc.training.noc_nod.NocNod;
 import com.senlainc.training.number.IntegerNumber;
+import com.senlainc.training.word_in_text.Sentence;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -39,6 +40,17 @@ public class App {
                     }
                     break;
                 case "3":
+                    Scanner newScanner = new Scanner(System.in);
+                    try {
+                        System.out.print("\n\tEnter the sentence (space separator): ");
+                        String scanStr = newScanner.nextLine();
+                        Sentence str = new Sentence(scanStr);
+                        System.out.println(str.toString());
+                    } catch (InputMismatchException e) {
+                        System.out.println("\tEnter a sequence of words!\n");
+                    }
+                    break;
+                case "4":
                     gameStep = false;
                     break;
                 default:
@@ -49,8 +61,10 @@ public class App {
     }
 
     private static void greeting() {
-        System.out.println("\t1. Check on integer");
-        System.out.println("\t2. Exit\n");
+        System.out.println("\n\t1. Check on integer");
+        System.out.println("\t2. NOC and NOD");
+        System.out.println("\t3. Count of word in sentence");
+        System.out.println("\t4. Exit\n");
         System.out.print("\tSelect a menu item: ");
     }
 }
