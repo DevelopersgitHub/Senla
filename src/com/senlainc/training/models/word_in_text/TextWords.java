@@ -1,4 +1,4 @@
-package com.senlainc.training.word_in_text;
+package com.senlainc.training.models.word_in_text;
 
 import java.util.ArrayList;
 import java.util.Arrays;

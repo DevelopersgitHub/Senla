@@ -1,8 +1,9 @@
-import com.senlainc.training.noc_nod.NocNod;
-import com.senlainc.training.number.IntegerNumber;
-import com.senlainc.training.count_words.Sentence;
-import com.senlainc.training.palindrome.SentencePalindrome;
-import com.senlainc.training.word_in_text.TextWords;
+import com.senlainc.training.models.backpack_of_things.Backpack;
+import com.senlainc.training.models.noc_nod.NocNod;
+import com.senlainc.training.models.number.IntegerNumber;
+import com.senlainc.training.models.count_words.Sentence;
+import com.senlainc.training.models.palindrome.SentencePalindrome;
+import com.senlainc.training.models.word_in_text.TextWords;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -79,6 +80,10 @@ public class App {
                     }
                     break;
                 case "6":
+                    Backpack backpack = new Backpack(10);
+                    backpack.parseJSON();
+                    break;
+                case "7":
                     gameStep = false;
                     break;
                 default:
@@ -94,7 +99,8 @@ public class App {
         System.out.println("\t3. Count of word in sentence");
         System.out.println("\t4. Count of word in text");
         System.out.println("\t5. Numbers palindrome");
-        System.out.println("\t6. Exit\n");
+        System.out.println("\t6. Backpack");
+        System.out.println("\t7. Exit\n");
         System.out.print("\tSelect a menu item: ");
     }
 }

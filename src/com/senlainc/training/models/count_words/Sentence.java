@@ -1,4 +1,4 @@
-package com.senlainc.training.count_words;
+package com.senlainc.training.models.count_words;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +21,6 @@ public class Sentence {
         if (str.length() > 0) {
             words = new ArrayList<>(Arrays.asList(str.split(" ")));
         }
-        assert words != null;
         if (words.size() > 0) {
             for (int i = 0; i < words.size(); i++) {
                 words.set(i, words.get(i).replaceAll("[^a-zA-Z ]", "").trim().toLowerCase());

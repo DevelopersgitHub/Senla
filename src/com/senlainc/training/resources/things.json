@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Ball",
+    "weight": 1,
+    "cost": 200.0
+  },
+  {
+    "id": 2,
+    "name": "Pen",
+    "weight": 0.75,
+    "cost": 1
+  },
+  {
+    "id": 3,
+    "name": "Headphones",
+    "weight": 0.30,
+    "cost": 700
+  },
+  {
+    "id": 4,
+    "name": "Ball",
+    "weight": 100,
+    "cost": 200.0
+  },
+  {
+    "id": 5,
+    "name": "Notebook",
+    "weight": 0.10,
+    "cost": 50
+  },
+  {
+    "id": 6,
+    "name": "Laptop",
+    "weight": 3,
+    "cost": 25000
+  },
+  {
+    "id": 7,
+    "name": "Stand",
+    "weight": 0.10,
+    "cost": 30
+  }
+]

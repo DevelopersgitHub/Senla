@@ -1,4 +1,4 @@
-package com.senlainc.training.noc_nod;
+package com.senlainc.training.models.noc_nod;
 
 public class NocNod {
     private int number;

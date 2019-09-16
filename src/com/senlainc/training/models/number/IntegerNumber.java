@@ -1,4 +1,4 @@
-package com.senlainc.training.number;
+package com.senlainc.training.models.number;
 
 public class IntegerNumber {
     private int number;

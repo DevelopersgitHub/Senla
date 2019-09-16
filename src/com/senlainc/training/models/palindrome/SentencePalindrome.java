@@ -1,7 +1,6 @@
-package com.senlainc.training.palindrome;
+package com.senlainc.training.models.palindrome;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SentencePalindrome {
