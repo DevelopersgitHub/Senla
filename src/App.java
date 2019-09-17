@@ -81,7 +81,7 @@ public class App {
                     break;
                 case "6":
                     Backpack backpack = new Backpack(10);
-                    backpack.parseJSON();
+                    backpack.buildBackpack();
                     break;
                 case "7":
                     gameStep = false;
