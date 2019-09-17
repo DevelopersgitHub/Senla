@@ -23,7 +23,7 @@ public class Thing {
 
     @Override
     public String toString() {
-        return "Thing{" +
+        return "Thing: " +
                 "name='" + name + '\'' +
                 ", weight=" + weight +
                 ", cost=" + cost +

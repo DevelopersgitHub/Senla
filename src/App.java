@@ -82,7 +82,7 @@ public class App {
                 case "6":
                     Backpack backpack = new Backpack(5.0);
                     backpack.buildBackpack();
-                    System.out.println(backpack.getBestItems());
+                    System.out.println("\t" + backpack.getBestItems());
                     break;
                 case "7":
                     gameStep = false;

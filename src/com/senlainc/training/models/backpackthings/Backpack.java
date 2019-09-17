@@ -24,6 +24,7 @@ public class Backpack {
 
     public Backpack(double capacity) {
         this.capacity = capacity;
+        parseJSON();
     }
 
     /**
@@ -35,7 +36,7 @@ public class Backpack {
             Object obj = parser.parse(new FileReader(PATH));
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray things = (JSONArray) jsonObject.get("things");
-            things.forEach(th -> this.parseEmployeeObject((JSONObject) th));
+            things.forEach(th -> parseEmployeeObject((JSONObject) th));
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
@@ -51,61 +52,51 @@ public class Backpack {
     }
 
     public void buildBackpack() {
-        this.parseJSON();
-        this.iterateValues(this.things);
+        List<Thing> things = new ArrayList<>(this.things);
+        this.iterateValues(things);
     }
 
     //calculate full weight set of things
-    private double calculateWeight() {
+    private double calculateWeight(List<Thing> items) {
         double sumW = 0;
-        for (Thing thing : this.things) {
-            sumW += thing.getCost();
+        for (Thing thing : items) {
+            sumW += thing.getWeight();
         }
         return sumW;
     }
 
     //call of full cost set of things
-    private double calculatePrice() {
+    private double calculatePrice(List<Thing> items) {
         double sumPrice = 0;
-        for (Thing thing : this.things) {
+        for (Thing thing : items) {
             sumPrice += thing.getCost();
         }
         return sumPrice;
     }
 
-    private void getBestSet() {
+    private void getBestSet(List<Thing> items) {
         if (bestItems == null) {
-            if (calculateWeight() <= capacity) {
-                bestItems = this.things;
-                bestPrice = calculatePrice();
+            if (calculateWeight(items) <= capacity) {
+                bestItems = items;
+                bestPrice = calculatePrice(items);
             }
         } else {
-            if (calculateWeight() <= capacity && calculatePrice() > bestPrice) {
-                bestItems = this.things;
-                bestPrice = calculatePrice();
+            if (calculateWeight(items) <= capacity && calculatePrice(items) > bestPrice) {
+                bestItems = items;
+                bestPrice = calculatePrice(items);
             }
         }
     }
 
     private void iterateValues(List<Thing> items) {
-        if (items.size() > 0) {
-            getBestSet();
-        } else {
-            return;
-        }
+        if (items.size() > 0)
+            getBestSet(items);
+
         for (int i = 0; i < items.size(); i++) {
             List<Thing> newSet = new ArrayList<>(items);
             newSet.remove(i);
             iterateValues(newSet);
         }
-    }
-
-    @Override
-    public String toString() {
-        return "\tIn the backpack with capacity: "
-                + capacity +
-                " fit " + things.size() +
-                " things";
     }
 
 }

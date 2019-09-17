@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Ball",
-      "weight": 1.0,
+      "weight": 2.1,
       "cost": 200.0
     },
     {
@@ -15,31 +15,31 @@
     {
       "id": 3,
       "name": "Headphones",
-      "weight": 0.30,
+      "weight": 0.3,
       "cost": 700.0
     },
     {
       "id": 4,
-      "name": "Ball",
-      "weight": 100.0,
-      "cost": 200.0
+      "name": "Book",
+      "weight": 0.8,
+      "cost": 700.0
     },
     {
       "id": 5,
       "name": "Notebook",
-      "weight": 0.10,
+      "weight": 0.1,
       "cost": 50.0
     },
     {
       "id": 6,
       "name": "Laptop",
-      "weight": 3.0,
+      "weight": 5.0,
       "cost": 25000.0
     },
     {
       "id": 7,
       "name": "Stand",
-      "weight": 0.10,
+      "weight": 0.1,
       "cost": 30.0
     }
   ]
