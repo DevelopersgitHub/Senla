@@ -1,4 +1,4 @@
-package com.senlainc.training.models.count_words;
+package com.senlainc.training.models.countwords;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.senlainc.training.models.backpack_of_things;
+package com.senlainc.training.models.backpackthings;
 
 public class Thing {
     private long id;

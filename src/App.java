@@ -1,9 +1,9 @@
-import com.senlainc.training.models.backpack_of_things.Backpack;
-import com.senlainc.training.models.noc_nod.NocNod;
+import com.senlainc.training.models.backpackthings.Backpack;
+import com.senlainc.training.models.nocnod.NocNod;
 import com.senlainc.training.models.number.IntegerNumber;
-import com.senlainc.training.models.count_words.Sentence;
+import com.senlainc.training.models.countwords.Sentence;
 import com.senlainc.training.models.palindrome.SentencePalindrome;
-import com.senlainc.training.models.word_in_text.TextWords;
+import com.senlainc.training.models.wordstext.TextWords;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -80,8 +80,9 @@ public class App {
                     }
                     break;
                 case "6":
-                    Backpack backpack = new Backpack(10);
+                    Backpack backpack = new Backpack(5.0);
                     backpack.buildBackpack();
+                    System.out.println(backpack.getBestItems());
                     break;
                 case "7":
                     gameStep = false;

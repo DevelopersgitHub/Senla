@@ -1,4 +1,4 @@
-package com.senlainc.training.models.backpack_of_things;
+package com.senlainc.training.models.backpackthings;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -8,18 +8,21 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Backpack {
     private static final String PATH = "C:\\Users\\Компьютер\\IdeaProjects\\senla\\src\\com\\senlainc\\training\\resources\\things.json";
 
-    private int capacity;
+    private double capacity;
     private List<Thing> things = new ArrayList<>();
+    private List<Thing> bestItems = null;
+    private double bestPrice;
 
-    public Backpack(int capacity) {
+    public List<Thing> getBestItems() {
+        return bestItems;
+    }
+
+    public Backpack(double capacity) {
         this.capacity = capacity;
     }
 
@@ -49,23 +52,52 @@ public class Backpack {
 
     public void buildBackpack() {
         this.parseJSON();
-        int capacity = this.capacity;
-        List<Thing> things = this.things;
-        for (int i = 0; i < things.size(); i++) {
-            if (capacity > 0) {
-                List<Thing> th = things.subList(i, things.size());
-                Collections.max(th, Comparator.comparing(s -> s.getCost()));
-                Thing thingMax = Collections.max(th, Comparator.comparing(s -> s.getCost()));
-                if (capacity >= things.get(i).getWeight()) {
-                    double maxCost = things.get(i).getCost();
-                } else {
-                    things.remove(i);
-                }
-            } else {
-                break;
+        this.iterateValues(this.things);
+    }
+
+    //calculate full weight set of things
+    private double calculateWeight() {
+        double sumW = 0;
+        for (Thing thing : this.things) {
+            sumW += thing.getCost();
+        }
+        return sumW;
+    }
+
+    //call of full cost set of things
+    private double calculatePrice() {
+        double sumPrice = 0;
+        for (Thing thing : this.things) {
+            sumPrice += thing.getCost();
+        }
+        return sumPrice;
+    }
+
+    private void getBestSet() {
+        if (bestItems == null) {
+            if (calculateWeight() <= capacity) {
+                bestItems = this.things;
+                bestPrice = calculatePrice();
+            }
+        } else {
+            if (calculateWeight() <= capacity && calculatePrice() > bestPrice) {
+                bestItems = this.things;
+                bestPrice = calculatePrice();
             }
         }
-        System.out.println(things);
+    }
+
+    private void iterateValues(List<Thing> items) {
+        if (items.size() > 0) {
+            getBestSet();
+        } else {
+            return;
+        }
+        for (int i = 0; i < items.size(); i++) {
+            List<Thing> newSet = new ArrayList<>(items);
+            newSet.remove(i);
+            iterateValues(newSet);
+        }
     }
 
     @Override
