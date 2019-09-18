@@ -13,7 +13,7 @@ public class SentencePalindrome {
     private List<Integer> getNumbersPalindrome() {
         List<Integer> arr = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            if (isPalindrome(i) && (i % 10 > 1)) {
+            if (isPalindrome(i)) {
                 arr.add(i);
             }
         }

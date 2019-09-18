@@ -22,6 +22,26 @@ public class Backpack {
         return bestItems;
     }
 
+    public double getFullCost() {
+        double sum = 0;
+        if (this.bestItems.size() > 0) {
+            for (Thing item : this.bestItems) {
+                sum += item.getCost();
+            }
+        }
+        return sum;
+    }
+
+    public double getFullWeight() {
+        double weight = 0;
+        if (this.bestItems.size() > 0) {
+            for (Thing item : this.bestItems) {
+                weight += item.getWeight();
+            }
+        }
+        return weight;
+    }
+
     public Backpack(double capacity) {
         this.capacity = capacity;
         parseJSON();
@@ -29,6 +49,7 @@ public class Backpack {
 
     /**
      * method proccesing JSON
+     * use library json-simple
      */
     private void parseJSON() {
         JSONParser parser = new JSONParser();

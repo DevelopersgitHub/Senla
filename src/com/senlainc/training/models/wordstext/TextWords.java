@@ -23,7 +23,7 @@ public class TextWords {
 
     @Override
     public String toString() {
-        return "\n\tCount of word: "
+        return "\n\tCount of word "
                 + word + " in text: "
                 + getCountOfWordsInText();
     }

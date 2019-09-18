@@ -1,12 +1,13 @@
 import com.senlainc.training.models.backpackthings.Backpack;
+import com.senlainc.training.models.backpackthings.Thing;
 import com.senlainc.training.models.nocnod.NocNod;
 import com.senlainc.training.models.number.IntegerNumber;
 import com.senlainc.training.models.countwords.Sentence;
 import com.senlainc.training.models.palindrome.SentencePalindrome;
 import com.senlainc.training.models.wordstext.TextWords;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class App {
 
@@ -80,9 +81,16 @@ public class App {
                     }
                     break;
                 case "6":
+                    List<Thing> things;
                     Backpack backpack = new Backpack(5.0);
                     backpack.buildBackpack();
-                    System.out.println("\t" + backpack.getBestItems());
+                    things = backpack.getBestItems();
+                    System.out.println("\t" + things);
+                    System.out.println("\tCount of things in backpack: "
+                            + backpack.getBestItems().size()
+                            + ", cost: " + backpack.getFullCost()
+                            + ", weight: " + backpack.getFullWeight()
+                    );
                     break;
                 case "7":
                     gameStep = false;
